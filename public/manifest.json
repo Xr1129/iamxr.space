@@ -1,0 +1,9 @@
+{
+  "name": "XR - Personal Website",
+  "short_name": "XR",
+  "description": "Personal website and blog by XR",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff"
+}
