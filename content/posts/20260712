@@ -1,0 +1,8 @@
+# 测试blog
+
+记得编辑完要
+```
+cd /var/www/iamxr.space && git pull && npm run build && systemctl restart iamxr.space
+```
+
+嘿嘿嘿
