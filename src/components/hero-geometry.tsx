@@ -13,9 +13,17 @@ interface Particle {
   opacity: number;
 }
 
-const PARTICLE_COUNT = 180;
+const PARTICLE_COUNT_PC = 180;
+const PARTICLE_COUNT_ANDROID = 50;
 const REPEL_RADIUS = 180;
 const MAX_SPEED = 0.8;
+
+function getParticleCount(): number {
+  if (typeof document === "undefined") return PARTICLE_COUNT_PC;
+  return document.documentElement.dataset.os === "android"
+    ? PARTICLE_COUNT_ANDROID
+    : PARTICLE_COUNT_PC;
+}
 
 interface Props {
   containerRef?: React.RefObject<HTMLDivElement | null>;
@@ -58,7 +66,7 @@ export default function HeroGeometry({ containerRef }: Props) {
 
     function seed(w: number, h: number) {
       const particles: Particle[] = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
+      for (let i = 0; i < getParticleCount(); i++) {
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,

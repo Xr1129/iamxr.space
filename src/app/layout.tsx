@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { parseUA } from "@/lib/device";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,9 +21,13 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers();
+  const ua = headersList.get("user-agent") || "";
+  const device = parseUA(ua);
+
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning data-os={device.os} data-device={device.type} data-browser={device.browser}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
