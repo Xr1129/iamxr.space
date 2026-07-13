@@ -1,6 +1,8 @@
 import { getAllPosts } from "@/lib/posts";
 import BlogSearch from "@/components/blog-search";
 
+export const dynamic = "force-dynamic";
+
 export default function BlogPage() {
   const posts = getAllPosts();
 

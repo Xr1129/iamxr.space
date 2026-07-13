@@ -16,6 +16,9 @@ export default function Header() {
   const [dark, setDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Hide header on editor and login pages
+  if (pathname.startsWith("/editor") || pathname.startsWith("/login")) return null;
+
   useEffect(() => {
     setDark(document.documentElement.classList.contains("dark"));
   }, []);

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Xr-Space — Xr 的个人网站与博客。",
   openGraph: {
     title: "Xr-Space",
-    description: "Xr 的个人网站与博客。构建产品、探索技术、分享想法。",
+    description: "Xr 的个人网站与博客。探索技术、分享想法。",
     url: "https://iamxr.space",
     siteName: "Xr-Space",
     locale: "zh_CN",
@@ -42,11 +42,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="alternate" type="application/rss+xml" title="Xr 博客 RSS" href="/blog/rss.xml" />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Xr-Space" />
+        <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
       </head>
       <body className="flex flex-col h-dvh bg-white text-gray-900 antialiased transition-colors duration-200 dark:bg-black dark:text-gray-100">
         <Header />
         <main className="flex-1 overflow-y-auto">{children}</main>
         <Footer />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').catch(function() {});
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );

@@ -23,17 +23,19 @@ const skills = [
 
 export default function GuiHome({ posts }: { posts: Post[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
       ref={containerRef}
       className="h-full overflow-y-auto bg-white dark:bg-black scroll-smooth"
     >
-      {/* ====== Hero | 全屏 ====== */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-        <HeroGeometry />
+      <div ref={bgRef} className="relative overflow-hidden">
+        <HeroGeometry containerRef={bgRef} />
 
-        <div className="relative z-10 text-center px-4 max-w-3xl">
+        {/* ====== Hero | 全屏 ====== */}
+        <section className="relative min-h-screen flex flex-col items-center justify-center">
+          <div className="relative z-10 text-center px-4 max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,6 +83,12 @@ export default function GuiHome({ posts }: { posts: Post[] }) {
               className="inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-800 px-6 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
             >
               关于我
+            </Link>
+            <Link
+              href="/guestbook"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-800 px-6 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
+            >
+              留言墙
             </Link>
           </motion.div>
         </div>
@@ -286,6 +294,7 @@ export default function GuiHome({ posts }: { posts: Post[] }) {
 
       {/* bottom spacer */}
       <div className="h-24" />
+      </div>{/* end bgRef wrapper */}
     </div>
   );
 }

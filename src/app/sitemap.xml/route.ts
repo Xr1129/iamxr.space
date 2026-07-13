@@ -1,5 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const siteUrl = "https://iamxr.space";
   const posts = getAllPosts();

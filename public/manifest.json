@@ -3,14 +3,18 @@
   "short_name": "Xr",
   "description": "Personal website and blog by Xr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "any",
   "theme_color": "#0a0a0a",
   "background_color": "#0a0a0a",
+  "categories": ["blog", "personal"],
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

@@ -13,7 +13,7 @@ interface Props {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = getPostBySlug(decodeURIComponent(slug));
 
   if (!post) {
     notFound();
@@ -33,19 +33,23 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {post.title}
           </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <time className="text-sm text-gray-400 dark:text-gray-500">{post.date}</time>
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-400 dark:text-gray-500">
+            <time>发布于 {post.date}</time>
+            {post.updated && (
+              <>
+                <span className="text-gray-300 dark:text-gray-700">·</span>
+                <time>更新于 {post.updated}</time>
+              </>
+            )}
             <span className="text-gray-300 dark:text-gray-700">·</span>
-            <span className="text-sm text-gray-400 dark:text-gray-500">
-              {Math.ceil(post.content.split(/\s+/).length / 200)} min read
-            </span>
+            <span>{Math.ceil(post.content.split(/\s+/).length / 200)} min read</span>
           </div>
         </header>
 
         <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-primary dark:prose-a:text-blue-400 prose-pre:rounded-xl prose-pre:shadow-sm prose-img:rounded-xl">
           <MDXRemote
             source={post.content}
-            components={{ Image: MdxImage }}
+            components={{ Image: MdxImage, img: MdxImage as any }}
             options={{
               mdxOptions: {
                 rehypePlugins: [rehypeHighlight as any, rehypeSlug],

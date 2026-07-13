@@ -16,7 +16,7 @@ export default function AboutPage() {
       <div className="grid gap-10 lg:grid-cols-3">
         <div className="lg:col-span-1">
           <div className="sticky top-24 space-y-4">
-            <div className="h-32 w-32 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center text-5xl">👨‍💻</div>
+            <img src="/images/profile.jpg" alt="Profile" className="h-32 w-32 rounded-lg object-cover" />
             <div>
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">XuR</h2>
               <p className="text-sm text-gray-500 dark:text-gray-400">开发者</p>
