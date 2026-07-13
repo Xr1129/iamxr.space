@@ -113,122 +113,6 @@ export default function GuiHome({ posts }: { posts: Post[] }) {
         </motion.div>
       </section>
 
-      {/* ====== Skills | 代码块美学 ====== */}
-      <section className="py-32 px-4">
-        <div className="mx-auto max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-120px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-12 text-center font-mono">
-              {"<"}技能栈 {" />"}
-            </h2>
-
-            {/* code block card */}
-            <div className="relative rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
-              {/* title bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-                <span className="w-3 h-3 rounded-full bg-red-400" />
-                <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                <span className="w-3 h-3 rounded-full bg-green-400" />
-                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 font-mono">
-                  skills.ts
-                </span>
-              </div>
-
-              {/* code content */}
-              <div className="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
-                <div className="flex">
-                  {/* line numbers */}
-                  <div className="select-none text-right pr-5 text-gray-300 dark:text-gray-700 shrink-0">
-                    {Array.from({ length: skills.length + 3 }, (_, i) => (
-                      <div key={i}>{i + 1}</div>
-                    ))}
-                  </div>
-
-                  {/* code */}
-                  <div className="text-gray-800 dark:text-gray-200">
-                    <div>
-                      <span className="text-purple-500 dark:text-purple-400">
-                        const
-                      </span>{" "}
-                      <span className="text-blue-500 dark:text-blue-400">
-                        skills
-                      </span>
-                      <span>: </span>
-                      <span className="text-green-500 dark:text-green-400">
-                        string
-                      </span>
-                      <span className="text-gray-500">[]</span>
-                      <span> = </span>
-                      <span className="text-gray-500">[</span>
-                    </div>
-                    {skills.map((skill) => (
-                      <div key={skill} className="ml-4">
-                        <span className="text-orange-400 dark:text-orange-300">
-                          &quot;{skill}&quot;
-                        </span>
-                        <span className="text-gray-500">,</span>
-                      </div>
-                    ))}
-                    <div>
-                      <span className="text-gray-500">];</span>
-                    </div>
-                    <div className="mt-3 text-gray-400 dark:text-gray-600">
-                      <span className="text-purple-500 dark:text-purple-400">
-                        export
-                      </span>{" "}
-                      <span className="text-purple-500 dark:text-purple-400">
-                        default
-                      </span>{" "}
-                      skills;
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ====== Projects | 项目卡片 ====== */}
-      <section className="py-32 px-4 border-t border-gray-100 dark:border-gray-900">
-        <div className="mx-auto max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-120px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 text-center font-mono">
-              {"<"}项目 {" />"}
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 text-center mb-12">
-              我做过的东西
-            </p>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              {projects.map((p, i) => (
-                <ProjectCard key={p.title} project={p} index={i} />
-              ))}
-            </div>
-
-            {projects.length > 2 && (
-              <div className="text-center mt-10">
-                <Link
-                  href="/projects"
-                  className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  查看全部项目 →
-                </Link>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ====== Blog | 文章预览 ====== */}
       <section className="py-32 px-4 border-t border-gray-100 dark:border-gray-900">
         <div className="mx-auto max-w-3xl">
@@ -305,6 +189,108 @@ export default function GuiHome({ posts }: { posts: Post[] }) {
               >
                 阅读全部文章 →
               </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ====== Projects | 项目卡片 ====== */}
+      <section className="py-32 px-4 border-t border-gray-100 dark:border-gray-900">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 text-center font-mono">
+              {"<"}项目 {" />"}
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 text-center mb-12">
+              我做过的东西
+            </p>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              {projects.map((p, i) => (
+                <ProjectCard key={p.title} project={p} index={i} />
+              ))}
+            </div>
+
+            {projects.length > 2 && (
+              <div className="text-center mt-10">
+                <Link
+                  href="/projects"
+                  className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  查看全部项目 →
+                </Link>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ====== Skills | 代码块美学 ====== */}
+      <section className="py-32 px-4 border-t border-gray-100 dark:border-gray-900">
+        <div className="mx-auto max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-12 text-center font-mono">
+              {"<"}技能栈 {" />"}
+            </h2>
+
+            <div className="relative rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+              {/* title bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+                <span className="w-3 h-3 rounded-full bg-red-400" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 font-mono">
+                  skills.ts
+                </span>
+              </div>
+
+              <div className="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+                <div className="flex">
+                  <div className="select-none text-right pr-5 text-gray-300 dark:text-gray-700 shrink-0">
+                    {Array.from({ length: skills.length + 3 }, (_, i) => (
+                      <div key={i}>{i + 1}</div>
+                    ))}
+                  </div>
+
+                  <div className="text-gray-800 dark:text-gray-200">
+                    <div>
+                      <span className="text-purple-500 dark:text-purple-400">const</span>{" "}
+                      <span className="text-blue-500 dark:text-blue-400">skills</span>
+                      <span>: </span>
+                      <span className="text-green-500 dark:text-green-400">string</span>
+                      <span className="text-gray-500">[]</span>
+                      <span> = </span>
+                      <span className="text-gray-500">[</span>
+                    </div>
+                    {skills.map((skill) => (
+                      <div key={skill} className="ml-4">
+                        <span className="text-orange-400 dark:text-orange-300">
+                          &quot;{skill}&quot;
+                        </span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                    ))}
+                    <div>
+                      <span className="text-gray-500">];</span>
+                    </div>
+                    <div className="mt-3 text-gray-400 dark:text-gray-600">
+                      <span className="text-purple-500 dark:text-purple-400">export</span>{" "}
+                      <span className="text-purple-500 dark:text-purple-400">default</span>{" "}
+                      skills;
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
