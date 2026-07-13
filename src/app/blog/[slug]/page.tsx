@@ -5,6 +5,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import Link from "next/link";
 import Comments from "@/components/comments";
+import MdxImage from "@/components/mdx-image";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -57,6 +58,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-primary dark:prose-a:text-blue-400 prose-pre:rounded-xl prose-pre:shadow-sm prose-img:rounded-xl">
           <MDXRemote
             source={post.content}
+            components={{ Image: MdxImage }}
             options={{
               mdxOptions: {
                 rehypePlugins: [rehypeHighlight as any, rehypeSlug],
