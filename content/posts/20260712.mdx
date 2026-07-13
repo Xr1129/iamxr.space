@@ -1,8 +1,19 @@
-# 测试blog
+---
+title: "部署笔记"
+date: "2026-07-12"
+excerpt: "记录网站部署和更新的流程备忘。"
+tags: ["DevOps", "Notes"]
+---
 
-记得编辑完要
-```
+## 部署备忘
+
+每次编辑完内容后，执行以下命令更新网站：
+
+```bash
 cd /var/www/iamxr.space && git pull && npm run build && systemctl restart iamxr.space
 ```
 
-嘿嘿嘿
+一些注意事项：
+- 确保 `git pull` 前本地修改已提交并推送
+- `npm run build` 会生成 `.next/` 构建产物
+- `systemctl restart iamxr.space` 重启服务以应用新版本

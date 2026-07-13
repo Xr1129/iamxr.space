@@ -7,9 +7,9 @@ export async function GET() {
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>XR&apos;s Blog</title>
+    <title>Xr&apos;s Blog</title>
     <link>${siteUrl}</link>
-    <description>Personal blog by XR — thoughts, learnings, and stories.</description>
+    <description>Personal blog by Xr — thoughts, learnings, and stories.</description>
     <language>en</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${siteUrl}/blog/rss.xml" rel="self" type="application/rss+xml"/>

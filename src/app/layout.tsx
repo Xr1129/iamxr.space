@@ -6,16 +6,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://iamxr.space"),
   title: { default: "Xr-Space", template: "%s | Xr-Space" },
-  description: "Xr-Space — XR 的个人网站与博客。",
+  description: "Xr-Space — Xr 的个人网站与博客。",
   openGraph: {
     title: "Xr-Space",
-    description: "XR 的个人网站与博客。构建产品、探索技术、分享想法。",
+    description: "Xr 的个人网站与博客。构建产品、探索技术、分享想法。",
     url: "https://iamxr.space",
     siteName: "Xr-Space",
     locale: "zh_CN",
     type: "website",
   },
-  twitter: { card: "summary", title: "Xr-Space", description: "XR 的个人网站与博客。" },
+  twitter: { card: "summary", title: "Xr-Space", description: "Xr 的个人网站与博客。" },
   robots: { index: true, follow: true },
 };
 
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
-        <link rel="alternate" type="application/rss+xml" title="XR 博客 RSS" href="/blog/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Xr 博客 RSS" href="/blog/rss.xml" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="flex flex-col h-dvh bg-white text-gray-900 antialiased transition-colors duration-200 dark:bg-black dark:text-gray-100">

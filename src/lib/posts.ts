@@ -25,11 +25,12 @@ export function getAllPosts(): Post[] {
       const fullPath = path.join(postsDirectory, filename);
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
+      const stat = fs.statSync(fullPath);
 
       return {
         slug,
         title: data.title ?? slug,
-        date: data.date ?? "",
+        date: data.date ?? stat.mtime.toISOString().split("T")[0],
         excerpt: data.excerpt ?? "",
         tags: data.tags ?? [],
         content,
@@ -69,11 +70,12 @@ export function getPostBySlug(slug: string): Post | null {
 
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
+  const stat = fs.statSync(filePath);
 
   return {
     slug,
     title: data.title ?? slug,
-    date: data.date ?? "",
+    date: data.date ?? stat.mtime.toISOString().split("T")[0],
     excerpt: data.excerpt ?? "",
     tags: data.tags ?? [],
     content,

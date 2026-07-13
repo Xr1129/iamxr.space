@@ -175,7 +175,7 @@ server {
 
 ## 📄 许可证 / License
 
-[MIT](./LICENSE) © XR
+[MIT](./LICENSE) © Xr
 
 ---
 

@@ -40,7 +40,7 @@ export default function Header() {
           <span className="relative inline-flex h-2 w-2 mr-1.5">
             <span className="absolute inset-0 rounded-full bg-green-500" />
           </span>
-          Xr—Space
+          Xr-Space
         </Link>
 
         <nav className="hidden sm:flex items-center gap-0.5">

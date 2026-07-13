@@ -17,8 +17,8 @@
   <circle cx="50" cy="50" r="40" fill="none" stroke="url(#g)" stroke-width="1.5" opacity="0.4"/>
   <circle cx="50" cy="10" r="2.5" fill="#8b5cf6"/>
 
-  <!-- XR text -->
-  <text x="50" y="62" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="32" font-weight="700" fill="#f5f5f5" letter-spacing="-1">XR</text>
+  <!-- Xr text -->
+  <text x="50" y="62" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="32" font-weight="700" fill="#f5f5f5" letter-spacing="-1">Xr</text>
 
   <!-- blinking cursor -->
   <rect x="70" y="36" width="3" height="26" rx="1.5" fill="#3b82f6" class="cursor"/>

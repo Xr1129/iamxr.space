@@ -1,7 +1,7 @@
 {
   "name": "Xr-Space",
-  "short_name": "XR",
-  "description": "Personal website and blog by XR",
+  "short_name": "Xr",
+  "description": "Personal website and blog by Xr",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#0a0a0a",

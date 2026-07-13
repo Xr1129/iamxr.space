@@ -17,7 +17,7 @@ export default function Footer() {
             <a href="/projects" className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">项目</a>
             <a href="/blog/rss.xml" className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">RSS</a>
           </div>
-          <p className="text-sm text-gray-400 dark:text-gray-500">&copy; {new Date().getFullYear()} Xr—Space</p>
+          <p className="text-sm text-gray-400 dark:text-gray-500">&copy; {new Date().getFullYear()} Xr-Space</p>
         </div>
       </div>
     </footer>
