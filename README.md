@@ -27,6 +27,7 @@
 - **暗色模式** — 跟随系统偏好，支持手动切换
 - **博客搜索** — 客户端实时搜索文章
 - **评论系统** — 基于 Giscus 的 GitHub Discussions 评论
+- **留言墙** — 访客留言，JSON 文件存储
 - **RSS 订阅** — 自动生成 RSS Feed
 - **站点地图** — 自动生成 sitemap.xml
 - **响应式设计** — 适配桌面端与移动端
@@ -52,7 +53,9 @@
 ```
 iamxr.space/
 ├── content/posts/              # MDX 博客文章
-├── data/images/posts/          # 上传的图片（服务端，不入 git）
+├── data/
+│   ├── guestbook.json          # 留言数据
+│   └── images/posts/          # 上传的图片（服务端，不入 git）
 ├── public/
 │   ├── manifest.json           # PWA manifest
 │   ├── sw.js                   # Service Worker
@@ -70,6 +73,7 @@ iamxr.space/
 │   │   │   ├── [slug]/page.tsx # 文章详情
 │   │   │   └── rss.xml/       # RSS 接口
 │   │   ├── projects/           # 项目展示
+│   │   ├── guestbook/           # 留言墙
 │   │   ├── sitemap.xml/        # 站点地图
 │   │   ├── login/              # 编辑器登录页
 │   │   ├── (editor)/editor/   # 编辑器页面组
@@ -91,12 +95,12 @@ iamxr.space/
 │   │   ├── comments.tsx        # Giscus 评论
 │   │   ├── project-card.tsx    # 项目卡片
 │   │   ├── mdx-image.tsx       # MDX 图片组件
+│   │   ├── guestbook-wall.tsx   # 留言墙组件
 │   │   └── editor/             # 编辑器组件
 │   │       ├── post-form.tsx   # 帖子表单
 │   │       ├── mdx-editor.tsx  # MDX 编辑器（工具栏+斜杠命令）
 │   │       ├── markdown-toolbar.tsx  # 底部格式化工具栏
 │   │       ├── slash-commands.tsx    # / 命令面板
-│   │       ├── image-uploader.tsx    # 图片上传
 │   │       ├── preview-panel.tsx     # MDX 预览
 │   │       └── delete-button.tsx     # 删除按钮
 │   ├── data/projects.ts        # 项目数据
