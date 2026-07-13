@@ -40,19 +40,6 @@ export default async function BlogPostPage({ params }: Props) {
               {Math.ceil(post.content.split(/\s+/).length / 200)} min read
             </span>
           </div>
-          {post.tags && post.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
-                  className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100 transition-colors dark:bg-blue-950 dark:text-blue-300 dark:hover:bg-blue-900"
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          )}
         </header>
 
         <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-primary dark:prose-a:text-blue-400 prose-pre:rounded-xl prose-pre:shadow-sm prose-img:rounded-xl">

@@ -24,7 +24,6 @@
 - 📝 **MDX 博客** — 使用 MDX 编写文章，支持 Markdown + JSX 组件
 - 🌓 **暗色模式** — 跟随系统偏好，支持手动切换
 - 🔍 **博客搜索** — 客户端实时搜索文章
-- 🏷️ **标签系统** — 按标签筛选博客文章
 - 💬 **评论系统** — 基于 [Giscus](https://giscus.app/) 的 GitHub Discussions 评论
 - 📡 **RSS 订阅** — 自动生成 RSS Feed
 - 🗺️ **站点地图** — 自动生成 sitemap.xml
@@ -59,8 +58,7 @@ iamxr.space/
 │   ├── app/               # Next.js App Router 页面
 │   │   ├── about/         # 关于页
 │   │   ├── blog/          # 博客列表 & [slug] 动态路由
-│   │   │   ├── rss.xml/   # RSS 接口
-│   │   │   └── tag/       # 标签筛选
+│   │   │   └── rss.xml/   # RSS 接口
 │   │   ├── projects/      # 项目展示
 │   │   └── sitemap.xml/   # 站点地图
 │   ├── components/        # React 组件
@@ -125,9 +123,8 @@ npm run dev
 ```mdx
 ---
 title: "文章标题"
-date: "2026-07-13"
+date: "2026-07-13 14:30"
 excerpt: "文章摘要，用于列表展示和 RSS。"
-tags: ["Next.js", "React", "TypeScript"]
 ---
 
 ## 正文开始

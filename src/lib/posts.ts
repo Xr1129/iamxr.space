@@ -9,7 +9,6 @@ export interface Post {
   title: string;
   date: string;
   excerpt: string;
-  tags: string[];
   content: string;
 }
 
@@ -32,28 +31,12 @@ export function getAllPosts(): Post[] {
         title: data.title ?? slug,
         date: data.date ?? stat.mtime.toISOString().split("T")[0],
         excerpt: data.excerpt ?? "",
-        tags: data.tags ?? [],
         content,
       };
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 
   return posts;
-}
-
-export function getAllTags(): { tag: string; count: number }[] {
-  const posts = getAllPosts();
-  const tagMap = new Map<string, number>();
-
-  for (const post of posts) {
-    for (const tag of post.tags) {
-      tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
-    }
-  }
-
-  return Array.from(tagMap.entries())
-    .map(([tag, count]) => ({ tag, count }))
-    .sort((a, b) => b.count - a.count);
 }
 
 export function getPostBySlug(slug: string): Post | null {
@@ -77,7 +60,6 @@ export function getPostBySlug(slug: string): Post | null {
     title: data.title ?? slug,
     date: data.date ?? stat.mtime.toISOString().split("T")[0],
     excerpt: data.excerpt ?? "",
-    tags: data.tags ?? [],
     content,
   };
 }

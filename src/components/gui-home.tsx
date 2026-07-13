@@ -159,18 +159,6 @@ export default function GuiHome({ posts }: { posts: Post[] }) {
                               {post.excerpt}
                             </p>
                           )}
-                          {post.tags.length > 0 && (
-                            <div className="mt-3 flex flex-wrap gap-1.5">
-                              {post.tags.map((tag) => (
-                                <span
-                                  key={tag}
-                                  className="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-900 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          )}
                         </div>
                         <time className="shrink-0 text-xs text-gray-400 dark:text-gray-500 font-mono">
                           {post.date}

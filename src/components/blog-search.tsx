@@ -67,18 +67,6 @@ export default function BlogSearch({ posts }: { posts: Post[] }) {
                     {post.excerpt}
                   </p>
                 )}
-                {post.tags && post.tags.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {post.tags.map((tag: string) => (
-                      <span
-                        key={tag}
-                        className="inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-500"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </article>
             </Link>
           ))}
