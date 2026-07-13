@@ -36,3 +36,6 @@ coverage/
 
 # contentlayer (if used in future)
 .contentlayer/
+
+# blog images — stored on server, not in git
+public/images/

@@ -142,6 +142,37 @@ const greeting: string = "Hello, World!";
 
 保存后刷新页面即可看到新文章。
 
+### 插入图片
+
+图片**不放入 Git 仓库**，直接上传到服务器，避免仓库膨胀。
+
+**方式一：用上传脚本（推荐）**
+
+```bash
+# 在本地执行
+./scripts/upload-image.sh ~/Desktop/cover.png hello-world
+# 输出: ✅ 上传完成！
+# 📝 ![描述](/images/posts/hello-world/cover.png)
+```
+
+**方式二：手动 scp**
+
+```bash
+scp photo.png root@iamxr.space:/var/www/iamxr.space/public/images/posts/hello-world/
+```
+
+**在 MDX 中引用：**
+
+```mdx
+<!-- 标准语法 -->
+![封面图](/images/posts/hello-world/cover.png)
+
+<!-- 或使用优化的 Image 组件 -->
+<Image src="/images/posts/hello-world/cover.png" alt="封面图" width={800} height={600} />
+```
+
+> 注意：`public/images/` 已被 `.gitignore` 排除，图片只存在于服务器磁盘上。
+
 ## 📦 部署 / Deployment
 
 本项目部署在 Linux 服务器上，使用 Nginx 反向代理 + systemd 进程管理。
