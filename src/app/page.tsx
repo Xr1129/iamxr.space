@@ -1,8 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
-import HomeClient from "@/components/home-client";
+import GuiHome from "@/components/gui-home";
 
 export default function HomePage() {
   const posts = getAllPosts();
-
-  return <HomeClient posts={posts} />;
+  return <GuiHome posts={posts} />;
 }
