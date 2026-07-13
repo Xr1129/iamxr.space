@@ -1,7 +1,38 @@
+# dependencies
 node_modules/
+
+# next.js build output
 .next/
+out/
+
+# environment variables
 .env
 .env.local
 .env*.local
+
+# logs
 *.log
+npm-debug.log*
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# testing
+coverage/
+
+# contentlayer (if used in future)
+.contentlayer/
